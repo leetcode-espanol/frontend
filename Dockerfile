@@ -1,8 +1,7 @@
 # syntax=docker/dockerfile:1
 
-ARG NODE_VERSION=22.10.0
 
-FROM node:${NODE_VERSION}-alpine as base
+FROM oven/bun:alpine as base
 
 WORKDIR /usr/src/app
 
@@ -11,7 +10,7 @@ FROM base as build
 
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=cache,target=/root/.npm \
-    npm install
+    bun install
 
 COPY . .
-CMD npm run dev
+CMD bun run dev

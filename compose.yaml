@@ -1,5 +1,17 @@
+
 services:
-  server:
+  backend:
+    extends:
+      file: ${BACKEND_PATH}
+      service: server 
+    depends_on: 
+      postgres: 
+        condition: service_healthy 
+  postgres:
+    extends:
+      file: ${BACKEND_PATH}
+      service: postgres 
+  frontend:
     build:
       context: .
     environment:
@@ -11,40 +23,8 @@ services:
         - action: sync 
           path: .
           target: /usr/src/app
-
         - action: rebuild
           path: package.json
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        - action: rebuild
+          path: bun.lockb
 
