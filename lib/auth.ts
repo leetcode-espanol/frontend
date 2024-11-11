@@ -1,4 +1,5 @@
-import { AuthOptions, getServerSession } from "next-auth";
+import { getServerSession, NextAuthOptions, Session } from "next-auth";
+import { JWT } from "next-auth/jwt";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import PostgresAdapter from "@auth/pg-adapter";
@@ -14,7 +15,7 @@ const pool = new Pool({
   connectionTimeoutMillis: 2000,
 });
 
-const authOptions = {
+const authOptions: NextAuthOptions = {
   secret: process.env.AUTH_SECRET as string,
   adapter: PostgresAdapter(pool),
 
@@ -38,13 +39,14 @@ const authOptions = {
         const user = await res.json();
 
         if (res.ok && user) {
-          return user;
+          return { ...user, authToken: user.authToken };
         }
         return null;
       },
     }),
   ],
 };
+
 const getSession = () => getServerSession(authOptions);
 
 export { authOptions, getSession };

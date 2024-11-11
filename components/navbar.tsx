@@ -180,7 +180,7 @@ function UserMenu({ mobile = false }: { mobile?: boolean }) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem>Profile</DropdownMenuItem>
+          <Link href="/profile"><DropdownMenuItem>Profile</DropdownMenuItem></Link>
           <DropdownMenuItem>Settings</DropdownMenuItem>
           <DropdownMenuItem>Sign out</DropdownMenuItem>
         </DropdownMenuContent>
