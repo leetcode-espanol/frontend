@@ -24,16 +24,18 @@ export async function UserProfile() {
   const userData = await userReq.json();
 
   return (
-    <Card className="w-full max-w-2xl mx-auto">
-      <CardHeader>
-        <CardTitle>User Profile</CardTitle>
-        <CardDescription>
-          View and edit your profile information
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <UserForm userData={userData} />
-      </CardContent>
-    </Card>
+    <div className="flex min-h-dvh items-center justify-center">
+      <Card className="w-full max-w-2xl mx-auto">
+        <CardHeader>
+          <CardTitle>User Profile</CardTitle>
+          <CardDescription>
+            View and edit your profile information
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <UserForm userData={userData} />
+        </CardContent>
+      </Card>
+    </div>
   );
 }
