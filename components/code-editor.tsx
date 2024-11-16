@@ -73,7 +73,7 @@ export function CodeEditor() {
       {/* Code Editor Column */}
       <div className="w-2/3 flex flex-col">
         <div
-          className={`p-2 flex justify-between items-center ${mainTheme === "dark" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+          className={`p-2 flex justify-between items-center ${mainTheme === "dark" ? "bg-black-800 text-white" : "bg-gray-100 text-black"}`}
         >
           {showConfig && (
             <div className="flex space-x-2">
