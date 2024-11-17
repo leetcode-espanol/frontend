@@ -73,7 +73,7 @@ export function CodeEditor() {
       {/* Code Editor Column */}
       <div className="w-2/3 flex flex-col">
         <div
-          className={`p-2 flex justify-between items-center ${mainTheme === "dark" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+          className={`p-2 flex justify-between items-center ${mainTheme === "dark" ? "text-white" : "text-black"}`}
         >
           {showConfig && (
             <div className="flex space-x-2">
@@ -87,8 +87,8 @@ export function CodeEditor() {
                   <SelectItem value="java">Java</SelectItem>
                 </SelectContent>
               </Select>
-              <Select value={theme} onValueChange={setTheme}>
-                <SelectTrigger className="w-[180px]">
+              <Select  onValueChange={setTheme}>
+                <SelectTrigger className={"w-[180px]"}>
                   <SelectValue placeholder="Select Theme" />
                 </SelectTrigger>
                 <SelectContent>
@@ -127,3 +127,4 @@ export function CodeEditor() {
     </div>
   );
 }
+//a
