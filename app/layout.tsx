@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import AuthProvider from "@/components/AuthProvider";
-import { getSession } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -27,7 +27,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getSession();
+  const session = await auth();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
